@@ -1,18 +1,18 @@
- 2.times do
+2.times do
   sample :loop_safari, rate: 1
-  sleep 8.5
+  sleep 8
 end
 
 4.times do
   sample :loop_safari, rate: 1
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.2
+  sleep 2
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.15
+  sleep 2
 end
 
 4.times do
@@ -20,14 +20,14 @@ end
   play choose([:D4,:E4]), attack: 6, release: 6, pan: -1
   sample :loop_safari, rate: 1
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.2
+  sleep 2
   play choose([:Fs4,:G4]), attack: 4, release: 5, pan: 1
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.15
+  sleep 2
 end
 
 4.times do
@@ -38,26 +38,25 @@ end
   with_fx :reverb, mix: 0.7 do
     play :D4
   end
-  sleep 2.2
+  sleep 2
   with_fx :reverb, mix: 0.7 do
     play :E4
   end
   play choose([:Fs4,:G4]), attack: 4, release: 5, pan: 1
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   with_fx :reverb, mix: 0.7 do
     play :Fs4
   end
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.19
+  sleep 2
   with_fx :reverb, mix: 0.7 do
     play :G4
   end
   sample :bd_boom, amp: 5, rate: 1
-  sleep 2.15
+  sleep 2
 end
 
 
 
 
- 
