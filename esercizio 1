@@ -1,19 +1,63 @@
-live_loop :safari do
-  
-  with_fx :echo, mix: 0.0, phase: 1 do
-    
-  end
+ 2.times do
   sample :loop_safari, rate: 1
-  sample :bd_boom, amp: 10, rate: 1
+  sleep 8.5
+end
+
+4.times do
+  sample :loop_safari, rate: 1
+  sample :bd_boom, amp: 5, rate: 1
   sleep 2.2
-  sample :bd_boom, amp: 10, rate: 1
+  sample :bd_boom, amp: 5, rate: 1
   sleep 2.19
-  sample :bd_boom, amp: 10, rate: 1
-  sleep 2.18
-  sample :bd_boom, amp: 10, rate: 1
-  sleep 2
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.19
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.15
 end
-live_loop :effects do
-  #sample :ambi_lunar_land
-  sleep 4
+
+4.times do
+  use_synth :hollow
+  play choose([:D4,:E4]), attack: 6, release: 6, pan: -1
+  sample :loop_safari, rate: 1
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.2
+  play choose([:Fs4,:G4]), attack: 4, release: 5, pan: 1
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.19
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.19
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.15
 end
+
+4.times do
+  use_synth :hollow
+  play choose([:D4,:E4]), attack: 6, release: 6, pan: -1
+  sample :loop_safari, rate: 1
+  sample :bd_boom, amp: 5, rate: 1
+  with_fx :reverb, mix: 0.7 do
+    play :D4
+  end
+  sleep 2.2
+  with_fx :reverb, mix: 0.7 do
+    play :E4
+  end
+  play choose([:Fs4,:G4]), attack: 4, release: 5, pan: 1
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.19
+  with_fx :reverb, mix: 0.7 do
+    play :Fs4
+  end
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.19
+  with_fx :reverb, mix: 0.7 do
+    play :G4
+  end
+  sample :bd_boom, amp: 5, rate: 1
+  sleep 2.15
+end
+
+
+
+
+ 
