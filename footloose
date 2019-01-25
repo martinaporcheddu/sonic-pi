@@ -1,0 +1,64 @@
+use_bpm 90
+
+footloose =  "/Users/martinaporcheddu/Desktop/footloose.wav"
+
+load_sample footloose
+
+define :sample_chunk do |what, beat, dur, delay|
+  beat = beat / 32.0
+  dur = dur / 32.0
+  sample what, beat_stretch: 16, start: beat, finish: beat + dur
+  sleep delay
+end
+
+
+define :giro do
+  sample_chunk(footloose, 0.0, 1.0, 0.5)
+  sample_chunk(footloose, 15.0, 1.0, 1.0)
+  sample_chunk(footloose, 0.0, 2.0, 1.0)
+  sample_chunk(footloose, 13.0, 1.0, 0.5)
+  sample_chunk(footloose, 18.0, 1.0, 0.5)
+  sample_chunk(footloose, 18.0, 1.0, 0.5)
+  sample_chunk(footloose, 28.0, 1.0, 0.5)
+  sample_chunk(footloose, 14.0, 1.0, 0.5)
+  sample_chunk(footloose, 28.0, 1.5, 0.0)
+  sample_chunk(footloose, 18.0, 1.0, 1.0)
+  sample_chunk(footloose, 15.0, 1.0, 0.5)
+  
+end
+
+define :solo do
+  
+  use_synth :dsaw
+  
+  use_synth_defaults amp: 0.1, attack: 0.05, sustain: 0.15, release:  0.125
+  
+  phases = [
+    [:D3, :Fs1, :B1, :Fs1],
+    [:D2, :Gs1, :B1, :Gs1],
+    [:G2, :B1, :E1, :B1],
+    [:E2, :A1, :Cs1, :A1],
+    
+    [:D2, :Fs2, :B1, :Fs2],
+    [:D2, :Gs2, :B1, :Gs2],
+    [:G3, :B2, :E3, :B3],
+    [:E4, :A3, :Cs4, :A3],
+  ]
+  
+  phases.each do |notes|
+    4.times do
+      notes.each do |n|
+        play n
+        sleep 0.25
+      end
+    end
+  end
+end
+in_thread do
+  loop do
+    giro
+  end
+end
+loop do
+  solo
+end
